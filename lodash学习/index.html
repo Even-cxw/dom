@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lodash Demo</title>
+	<script src="js/lodash.js"></script>
+</head>
+
+<body>
+
+	<script>
+		const arr = ['A', 'B', 'C'];
+		_.chunk(arr, 2);//[['A'],['B'],['C']]
+		// console.log(_.chunk(arr, 2));
+		let q1 = [
+			{ VirtServerIndex: 'Even', IP: 12 },
+			{ VirtServerIndex: 'Even2', IP: 12 },
+			{ VirtServerIndex: 'Even', IP: 14 },
+			{ VirtServerIndex: 'Even3', IP: 15 },
+		]
+		// 根据一个值进行去重数组
+		console.log(_.uniqBy(q1, 'VirtServerIndex'))
+		// console.log(_.uniqBy(q1, 'VirtServerIndex'))
+		// console.log(_.uniqBy(q1, ['VirtServerIndex']))
+		// 根据俩个值进行去重数组
+		_.uniqWith(q1, (pre,cur) => {
+			if (pre.VirtServerIndex == cur.VirtServerIndex || pre.IP == cur.IP) {
+				return true
+			}
+			return false;
+		})
+
+	</script>
+</body>
+
+</html>

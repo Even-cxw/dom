@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>moment</title>
+</head>
+<body>
+  <script src="./src/moment.js"></script>
+  <script>
+    // console.log('moment',moment);
+
+    const end = moment();
+    const start = moment().subtract(1, 'days');
+    const payload = {};
+    payload.startTime = start.valueOf();
+    payload.endTime = end.valueOf();
+    console.log('payload', payload);
+  </script>
+
+</body>
+</html>

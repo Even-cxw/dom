@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <script>
+        var  sys = {
+    "/home": {
+      "name": "首页",
+      "router": "home"
+    },
+    "/menu": {
+      "name": "菜单管理",
+      "router": "menu"
+    },
+    "/commConfig": {
+      "name": "通用表格",
+      "router": "commConfig"
+    }
+  }
+  function delSprit (name) {
+  let res = name
+  let num = name.indexOf('/')
+  if (num !== -1) {
+    res = name.slice(0, num)
+  }
+  return res
+}
+  
+for (var item in sys) {
+  let name = item.slice(1)
+  
+  let nameT = delSprit(name)
+  console.log('item', item);
+  console.log('name',name);
+  console.log('nameT',nameT);
+}
+
+
+    </script>
+</body>
+</html>
