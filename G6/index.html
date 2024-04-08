@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tutorial Demo</title>
+  </head>
+  <body>
+    /* 图的画布容器 */
+    <div id="mountNode"></div>
+    <button id="btn">搜索组</button>
+    /* 引入 G6 */
+    <script src="https://gw.alipayobjects.com/os/lib/antv/g6/4.3.11/dist/g6.min.js"></script>
+
+    <script>
+      // 定义数据源
+      const data = {
+        combos: [
+        {
+            id: "comboB_id",
+            label: "comboB",
+            type: 'rect',
+          },
+          {
+            id: "comboA_id",
+            label: "comboA_title",
+            parentId: "comboB_id",
+            type: 'rect',
+          },
+        ],
+        // 点集
+        nodes: [
+          {
+            id: "node1",
+            label: "Circle1",
+            x: 100,
+            y: 200,
+            // 与combos_id相对应
+            comboId: "comboA_id",
+          },
+          {
+            id: "node2",
+            label: "Circle2",
+            x: 300,
+            y: 200,
+            // 与combos_id相对应
+            comboId: "comboA_id",
+          },
+        ],
+        // 边集
+        edges: [
+          // 表示一条从 node1 节点连接到 node2 节点的边
+          {
+            source: "node1",
+            target: "node2",
+          },
+        ],
+      };
+
+      // 创建 G6 图实例
+      const graph = new G6.Graph({
+        container: "mountNode", // 指定图画布的容器 id，与第 9 行的容器对应
+        // 画布宽高
+        width: 800,
+        height: 500,
+        groupByTypes: false,
+        modes: {
+          default: ['drag-combo', 'collapse-expand-combo', 'drag-node'],
+          // comboStateStyles: {
+          //   actived: {
+          //     stroke: 'red',
+          //     lineWidth: 3,
+          //   },
+          // },
+        },
+        defaultNode: {
+          color: "red",
+          // 节点属性
+          labelCfg: {
+            // 图标说在位置
+            position: "top",
+            style: {
+              background: {
+                fill: "#ffffff",
+                stroke: "green",
+                padding: [3, 2, 3, 2],
+                radius: 2,
+                lineWidth: 3,
+              },
+            },
+          },
+        },
+        // 线属性
+        defaultEdge: {
+          labelCfg: {
+            autoRotate: true,
+            style: {
+              background: {
+                fill: "#ffffff",
+                stroke: "#000000",
+                padding: [2, 2, 2, 2],
+                radius: 2,
+              },
+            },
+          },
+        },
+        // combo属性
+        defaultCombo: {
+          collapsedSubstituteIcon: {
+            show: true,
+            img: "https://gw.alipayobjects.com/mdn/rms_f8c6a0/afts/img/A*IEQFS5VtXX8AAAAAAAAAAABkARQnAQ",
+            // ... 其他属性
+          },
+          // ... 其他属性
+          labelCfg: {
+            position: "top",
+            offset: [10, 10, 10, 10],
+            style: {
+              fill: "red",
+            },
+          },
+        },
+     
+      });
+      // 读取数据
+      graph.data(data);
+      // 渲染图
+      graph.render();
+
+      let btn = document.getElementById('btn')
+      
+      btn.addEventListener('click', function() {
+        // 更新组颜色
+        data.combos[1].style.stroke = '#1890ff'; // 修改为你希望的颜色
+        // 重新渲染图
+        graph.changeData(data);
+      })
+    </script>
+  </body>
+</html>
