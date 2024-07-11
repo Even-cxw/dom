@@ -1,0 +1,2 @@
+2024/07/11 17:36:19 [error] 74564#0: *7 "/Users/even/Documents/connect/dom/Nginx/html/asdf/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /asdf/ HTTP/1.1", host: "localhost:8080"
+2024/07/11 17:36:30 [error] 74564#0: *7 open() "/Users/even/Documents/connect/dom/Nginx/html/asdf" failed (2: No such file or directory), client: 127.0.0.1, server: localhost, request: "GET /asdf HTTP/1.1", host: "localhost:8080"
