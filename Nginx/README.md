@@ -75,14 +75,7 @@ error_log  /Users/even/Documents/connect/dom/Nginx/logs/error.log;
 > 跟nginx.conf后缀一样，也要有conf
 
 
-## nginx练习
 
-### 配置（正常）、（异常）日志输出文件位置
+# umi、webpack中的publicPath配置
 
-
-
-### 一个服务不同URl存放俩个html
-
-
-
-### 一个服务一个url根据不同终端呈现不同html
+- publicPath:只是影响生成 HTML 和资源引用的 URL 路径，而不改变文件的物理存储位置。
