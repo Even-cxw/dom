@@ -79,3 +79,24 @@ error_log  /Users/even/Documents/connect/dom/Nginx/logs/error.log;
 # umi、webpack中的publicPath配置
 
 - publicPath:只是影响生成 HTML 和资源引用的 URL 路径，而不改变文件的物理存储位置。
+```js
+publicPath: "/Even/",
+// 比如添加了publicPath后，看dist里面生成html文件里面的引用路径
+```
+
+- 生成文件src引用发生了变化
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="/umi.css">
+</head>
+<body>
+<div id="root"></div>
+<script src="/Even/umi.js"></script>
+</body>
+</html>
+```
